@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottomBarItemActivity"
+        android:icon="@drawable/ic_recents"
+        android:title="@string/menu_activity" />
+    <item
+        android:id="@+id/bottomBarItemMain"
+        android:icon="@drawable/ic_favorites"
+        android:title="@string/menu_main" />
+    <item
+        android:id="@+id/bottomBarItemSettings"
+        android:icon="@drawable/ic_nearby"
+        android:title="@string/menu_settings" />
+</menu>
