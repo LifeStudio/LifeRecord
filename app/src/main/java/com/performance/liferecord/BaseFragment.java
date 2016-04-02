@@ -38,6 +38,10 @@ public class BaseFragment extends Fragment {
         BaseFragment sampleFragment = new BaseFragment();
         sampleFragment.setArguments(args);
 
+        if (true) {
+
+        }
+
         return sampleFragment;
     }
 
