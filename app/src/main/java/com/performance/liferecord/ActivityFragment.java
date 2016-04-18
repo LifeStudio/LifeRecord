@@ -20,11 +20,11 @@ import java.util.List;
  * Created by Gracker on 2016/3/22.
  */
 public class ActivityFragment extends BaseFragment {
-    private RecyclerView mRecyclerView ;
+    private RecyclerView mRecyclerView;
     private List<String> mDates;
     private List<String> mContents;
 
-    public  ActivityFragment(){
+    public ActivityFragment() {
         initData();
     }
 
@@ -36,7 +36,7 @@ public class ActivityFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_fragment,null);
+        View rootView = inflater.inflate(R.layout.activity_fragment, null);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.activity_recycke_view);
         //设置布局管理器
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -49,29 +49,26 @@ public class ActivityFragment extends BaseFragment {
     }
 
     public static ActivityFragment newInstance() {
-        
+
         Bundle args = new Bundle();
-        
+
         ActivityFragment fragment = new ActivityFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
-    protected void initData()
-    {
+    protected void initData() {
         mDates = new ArrayList<>();
-        for (int i = 0; i < 30 ;  i++)
-        {
+        for (int i = 0; i < 30; i++) {
             mDates.add("2016 年 3 月 " + i + " 号");
         }
         mContents = new ArrayList<>();
-        for (int i = 0; i < 30 ;  i++)
-        {
+        for (int i = 0; i < 30; i++) {
             mContents.add("看完了电视剧<看了又看>的第 " + i + " 集");
         }
     }
 
-    class ActivityAdapter extends RecyclerView.Adapter<MyViewHolder>{
+    class ActivityAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -88,7 +85,7 @@ public class ActivityFragment extends BaseFragment {
             holder.content.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    EventBus.getDefault().post(new MessageEvent((String) ((TextView)v).getText()));
+                    EventBus.getDefault().post(new MessageEvent((String) ((TextView) v).getText()));
                 }
             });
         }
@@ -99,11 +96,12 @@ public class ActivityFragment extends BaseFragment {
         }
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView date;
         ImageView type;
         TextView content;
+
         public MyViewHolder(View itemView) {
             super(itemView);
             date = (TextView) itemView.findViewById(R.id.activity_recycke_item_date);
