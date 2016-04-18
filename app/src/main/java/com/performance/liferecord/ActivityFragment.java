@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,6 +85,12 @@ public class ActivityFragment extends BaseFragment {
         public void onBindViewHolder(MyViewHolder holder, int position) {
             holder.date.setText(mDates.get(position));
             holder.content.setText(mContents.get(position));
+            holder.content.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    EventBus.getDefault().post(new MessageEvent((String) ((TextView)v).getText()));
+                }
+            });
         }
 
         @Override
